@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Writer extends Model
 {
     use HasFactory;
 
-    public function writers()
+    public function books()
     {
-        return $this->belongsTo(Writer::class);
+        return $this->hasMany(Book::class);
     }
 
     protected $visible = [
         'id',
-        'title'
+        'name',
     ];
 }
