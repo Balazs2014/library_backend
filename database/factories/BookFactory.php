@@ -19,7 +19,9 @@ class BookFactory extends Factory
     {
         return [
             'title' => rtrim(fake()->sentence(2), '.'),
-            'writer_id' => fake()->numberBetween(1, 20)
+            'writer_id' => function () {
+                return Writer::factory()->create()->id;
+            },
         ];
     }
 }
